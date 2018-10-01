@@ -16,7 +16,7 @@ public class Main {
 
 
         SVG svg= new SVG(400,200);
-        svg.genrateHTML(body);
+        svg.generateHTML(body);
         svg.add(new Circle(200,100,40));
         
         XMLOutputter outputter = new XMLOutputter(Format.getPrettyFormat());

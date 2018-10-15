@@ -11,15 +11,25 @@ import fr.ubordeaux.ao.domain.model.Reference;
 
 public class CatalogImpl implements Catalog {
     private Map<String, Reference> references;
+    private Map<CatalogName, Catalog> subCatalogs;
+    private CatalogName name;
 
-    public CatalogImpl() {
+    public CatalogImpl(String name) {
         references = new HashMap<String, Reference>();
+        name=new CatalogName(name);
+        subCatalogs = new HashMap<CatalogName, Catalog>();
     }
 
     public int size() {
         return references.size();
     }
 
+    public Set<Reference> getReferences() {
+        Set<Reference> result = new HashSet<Reference>();
+        result.addAll(references.values());
+        return result;
+    }
+    
     public Set<Reference> getReferences() {
         Set<Reference> result = new HashSet<Reference>();
         result.addAll(references.values());

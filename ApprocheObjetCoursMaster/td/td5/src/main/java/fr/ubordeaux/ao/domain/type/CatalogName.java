@@ -9,7 +9,7 @@ import java.util.regexp.Matcher;
 public class CatalogName {
     private String name;
 
-    public Catalog(int name) {
+    public CatalogName(int name) {
         this.setName(name);
     }
 

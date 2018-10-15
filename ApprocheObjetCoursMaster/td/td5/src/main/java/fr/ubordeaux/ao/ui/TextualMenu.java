@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import fr.ubordeaux.ao.domain.exception.TextualMenuManagementException;
 
 import fr.ubordeaux.ao.domain.model.Catalog;
 import fr.ubordeaux.ao.domain.model.Reference;
@@ -17,7 +18,7 @@ public class TextualMenu {
     private PrintWriter out;
     private Catalog catalog;
 
-    protected TextualMenu(BufferedReader in , PrintWriter out) {
+    protected TextualMenu(BufferedReader in, PrintWriter out) {
         this.in = in;
         this.out = out;
         initCollection();
@@ -39,11 +40,12 @@ public class TextualMenu {
             out.println("(1) Add new Reference to Catalog,  (2) exit");
             out.println("Your choice 1-2:");
             String choice = in.readLine();
+            if (choice ==null){throw new TextualMenuManagementException("recommencer"); }
             switch (choice) {
                 case "1" : createReferenceAndAddItToCatalog();
                             break;
                 case "2" : end = true;
-                default : 
+                default : out.println("Again");
             }
         }
     }
@@ -52,17 +54,21 @@ public class TextualMenu {
         out.println("You ask to create a new reference and add it to the root catalog!");
         out.println("Reference id (any string, must be unique) : ");
         String refId = in.readLine();
+        if (refId ==null){throw new TextualMenuManagementException("recommencer"); }
         out.println("Reference name : ");
         String refName = in.readLine();
+        if (refName ==null){throw new TextualMenuManagementException("recommencer"); }
         out.println("Reference description : ");
         String refDescription = in.readLine();
+        if (refDescription ==null){throw new TextualMenuManagementException("recommencer"); }
         out.println("Price : ");
         String price = in.readLine();
+        if (price ==null){throw new TextualMenuManagementException("recommencer"); }
         Price refPrice = new Price(Integer.parseInt(price));
         Reference reference = new Reference(refId, refName, refDescription, refPrice);
 
         catalog.addReference(reference);
-        out.println("Reference ("+refId+") has been created and added to the catalog !");
+        out.println("Reference (" + refId + ") has been created and added to the catalog !");
     }
 
 }

@@ -8,15 +8,16 @@ import org.jdom2.output.*;
 public class SVG {
     private int width;
     private int height;
-    // créer une liste
+    private ArrayList<Forme> ListForme = new ArrayList<Forme>();// créer une
+    // liste
+    private Element svg = new Element("svg");
 
-    public SVG(int width, int heigth) {
+    public SVG(int width, int height) {
         this.width = width;
-        this.heigth = heigth;
+        this.height = height;
     }
 
     public void generateHTML(Element body) {
-        Element svg = new Element("svg");
         svg.setAttribute(new Attribute("width", "" + width + ""));
         svg.setAttribute(new Attribute("height", "" + height + ""));
         body.addContent(svg);
@@ -24,7 +25,17 @@ public class SVG {
     }
 
     public void add(Forme forme) {
-        // ajoute la forme à la liste
+        forme.add();
+        // svg.addContent(forme.htmlElement);
+        ListForme.add(forme);// ajoute la forme à la liste
+
+    }
+
+    public void create() {
+        for (Forme fo : ListForme) {
+            svg.addContent(fo.htmlElement);
+        }
+
     }
 
 }

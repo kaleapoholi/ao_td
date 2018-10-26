@@ -1,0 +1,9 @@
+Package: print
+Version: 0.1.1
+Section: devel
+Priority: optional
+Architecture: amd64
+Installed-Size: 29
+Maintainer: hello
+Description: print built using CMake
+

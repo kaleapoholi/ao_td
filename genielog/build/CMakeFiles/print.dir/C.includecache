@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/net/cremi/meconomides/m2/genielog/tpglog/main.c
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+print.h
+/net/cremi/meconomides/m2/genielog/tpglog/print.h
+
+/net/cremi/meconomides/m2/genielog/tpglog/print.h
+

@@ -1,0 +1,1 @@
+/usr/bin/cc  -fPIC   -shared -Wl,-soname,libmaLib.so -o libmaLib.so CMakeFiles/maLib.dir/print.o 

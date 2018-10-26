@@ -1,0 +1,1 @@
+/usr/bin/cc     CMakeFiles/print.dir/main.o  -o print -Wl,-rpath,/net/cremi/meconomides/m2/genielog/build: -rdynamic libmaLib.so 
